@@ -4,6 +4,7 @@
 
 import requests
 import pandas as pd
+import csv
 
  
 url = 'https://uk.misumi-ec.com/api_cms/en/navigation.json?_=1724907092424'
@@ -22,6 +23,9 @@ def fetch_response():
         # List to store extracted data
         data = []
  
+
+        with open('categories_subcategories_item.csv', 'a', newline='', encoding='utf-8') as csvfile:
+            writer = csv.writer(csvfile)
         # Iterate through items
         for item in items:
             try:
